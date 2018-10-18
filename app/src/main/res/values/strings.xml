@@ -10,4 +10,10 @@
     <string name="correct">Correct</string>
     <string name="play_again">Play Again</string>
     <string name="_0_0">0/0</string>
+    <string name="your_score">Your Score</string>
+    <string name="_00000">00000</string>
+    <string name="answered">Answered:</string>
+    <string name="incorrect">Incorrect:</string>
+    <string name="finalcorrect">Correct</string>
+    <string name="next_button">Next</string>
 </resources>

@@ -8,15 +8,11 @@
     tools:context=".MainActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/gameConstraintLayout"
+        android:id="@+id/finalConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_orange_light"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@android:color/black"
+        android:visibility="invisible">
 
         <Button
             android:id="@+id/playAgainButton"
@@ -31,10 +27,106 @@
             android:onClick="playAgain"
             android:text="@string/play_again"
             android:textSize="15sp"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/finalScoreCardTextView"
+            android:layout_width="274dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="@string/your_score"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/finalScoreTextView"
+            android:layout_width="223dp"
+            android:layout_height="94dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="@string/_00000"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/finalAnswered"
+            android:layout_width="228dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="252dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:gravity="center"
+            android:text="@string/answered"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/finalCorrect"
+            android:layout_width="228dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="288dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:gravity="center"
+            android:text="@string/finalcorrect"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/finalIncorrect"
+            android:layout_width="228dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="324dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:gravity="center"
+            android:text="@string/incorrect"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/gameConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.GridLayout
             android:id="@+id/gridLayout"
@@ -165,8 +257,8 @@
 
         <TextView
             android:id="@+id/resultTextView"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="355dp"
+            android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -180,7 +272,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-            app:layout_constraintVertical_bias="0.212" />
+            app:layout_constraintVertical_bias="0.087" />
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="nextButton"
+            android:text="@string/next_button"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

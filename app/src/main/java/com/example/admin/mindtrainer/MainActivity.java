@@ -30,36 +30,96 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Button playAgainButton;
+    Button nextButton;
     TextView sumTextView;
     TextView resultTextView;
     TextView timerTextView;
     TextView pointsTextView;
+
+    TextView finalScoreTextView;
+    TextView finalScoreCardTextView;
+    TextView finalAnsweredTextView;
+    TextView finalCorrectTextView;
+    TextView finalInCorrectTextView;
+
     ConstraintLayout startConstraintLayout;
     ConstraintLayout gameConstraintLayout;
     ConstraintLayout mainConstraintLayout;
+    ConstraintLayout finalConstraintLayout;
 
 
     int score=0;
     int numberOfQuestions=0;
+
+    int finalScore;
+
 
     ArrayList<Integer> answers = new ArrayList<Integer>();
 
 
 
 
-          public void playAgain(View view){
 
-              generateQuestion();
-                score = 0;
+
+     public String calculateFinalScore(){
+
+         finalScore = score/numberOfQuestions;
+
+         finalScore = (score*1000/numberOfQuestions);
+
+         return (Integer.toString(finalScore));
+     }
+
+
+    public void nextButton(View view){
+
+
+       // nextButton.setVisibility(View.INVISIBLE);
+        gameConstraintLayout.setVisibility(View.INVISIBLE);
+        finalConstraintLayout.setVisibility(View.VISIBLE);
+        startConstraintLayout.setVisibility(View.INVISIBLE);
+
+      //  Log.i("Score is :" , valueOf(score*1000/numberOfQuestions));
+
+
+      //  finalScoreTextView.setText(valueOf(score*1000/numberOfQuestions));
+     //  finalScoreTextView.setText(valueOf((score/numberOfQuestions)*1000));
+       finalScoreTextView.setText(valueOf(calculateFinalScore()));
+       finalScoreTextView.setTextColor(Color.YELLOW);
+
+
+
+      finalScoreTextView.animate().rotation(1800).setDuration(1000);
+
+
+
+
+        finalScoreTextView.setTextColor(Color.RED);
+        finalAnsweredTextView.setText("Answered :" + numberOfQuestions);
+       finalCorrectTextView.setText("Corret :" + score);
+       finalInCorrectTextView.setText("Incorrect :" +(numberOfQuestions - score));
+
+        }
+
+         public void playAgain(View view){
+
+               resultTextView.setText("");
+              score = 0;
                 numberOfQuestions=0;
                 timerTextView.setText("30s");
                 pointsTextView.setText("0/0");
-                playAgainButton.setVisibility(View.INVISIBLE);
-                button0.setEnabled(true);
-               button1.setEnabled(true);
-               button2.setEnabled(true);
-               button3.setEnabled(true);
+                sumTextView.setTextSize(30);
+                resultTextView.setTextSize(38);
+                generateQuestion();
+                nextButton.setVisibility(View.INVISIBLE);
 
+
+                button0.setEnabled(true);
+              button1.setEnabled(true);
+              button2.setEnabled(true);
+              button3.setEnabled(true);
+
+              gameConstraintLayout.setVisibility(View.VISIBLE);
 
 
               new CountDownTimer(30000 + 100, 1000) {
@@ -73,10 +133,8 @@ public class MainActivity extends AppCompatActivity {
                   @Override
                   public void onFinish() {
 
-                      timerTextView.setText("0s");
-                      resultTextView.setTextColor(Color.BLACK);
-                      resultTextView.setText("Your score is:" + Integer.toString(score));
-                      playAgainButton.setVisibility(View.VISIBLE);
+                     timerTextView.setText("0s");
+                     pointsTextView.setText("0/0");
                       sumTextView.setTextColor(Color.RED);
                       sumTextView.setTextSize(25);
                       sumTextView.setText("Time Over...!!!");
@@ -84,14 +142,15 @@ public class MainActivity extends AppCompatActivity {
                       button1.setEnabled(false);
                       button2.setEnabled(false);
                       button3.setEnabled(false);
-
+                      nextButton.setVisibility(View.VISIBLE);
+                      resultTextView.setTextSize(25);
+                      resultTextView.setTextColor(Color.BLACK);
+                    resultTextView.setText("Tap 'NEXT' to see the Final Score");
 
                   }
               }.start();
 
-
-
-          }
+              }
 
 
        public void chooseAnswer(View view){
@@ -118,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
              pointsTextView.setText(Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
              generateQuestion();
 
-       }
+    }
 
 
     public void generateQuestion(){
@@ -153,8 +212,7 @@ public class MainActivity extends AppCompatActivity {
                  answers.add(incorrectAnswers);
              }
 
-
-         }
+      }
 
         button0.setText(Integer.toString(answers.get(0)));
         button1.setText((Integer.toString(answers.get(1))));
@@ -163,12 +221,12 @@ public class MainActivity extends AppCompatActivity {
 
      }
 
-    public void startGame(View view){
+    public void startGame(View view) {
 
        startConstraintLayout.setVisibility(View.INVISIBLE);
        gameConstraintLayout.setVisibility(View.VISIBLE);
-       playAgainButton.setVisibility(View.INVISIBLE);
-        playAgain(findViewById(R.id.playAgainButton));
+       finalConstraintLayout.setVisibility(View.INVISIBLE);
+       playAgain(findViewById(R.id.playAgainButton));
 
 
     }
@@ -185,14 +243,26 @@ public class MainActivity extends AppCompatActivity {
         button3 = (Button) findViewById(R.id.button3);
         startButton = (Button) findViewById(R.id.startButton);
         playAgainButton = (Button) findViewById(R.id.playAgainButton);
+        nextButton = (Button) findViewById(R.id.nextButton);
+
         sumTextView = (TextView) findViewById(R.id.sumTextView);
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
          pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+
+         //  All the Methods for the Final Score card..............................................................
+        finalConstraintLayout = (ConstraintLayout) findViewById(R.id.finalConstraintLayout);
+         finalScoreCardTextView = (TextView) findViewById(R.id.finalScoreCardTextView);
+         finalScoreTextView = (TextView) findViewById(R.id.finalScoreTextView);
+         finalAnsweredTextView = (TextView) findViewById(R.id.finalAnswered);
+         finalCorrectTextView = (TextView) findViewById(R.id.finalCorrect);
+         finalInCorrectTextView = (TextView) findViewById(R.id.finalIncorrect);
+        //...........................................................................................................
+
+
         startConstraintLayout = (ConstraintLayout) findViewById(R.id.startConstraintLayout);
         gameConstraintLayout = (ConstraintLayout) findViewById(R.id.gameConstraintLayout);
-        mainConstraintLayout = (ConstraintLayout) findViewById(R.id.mainConstraintLayout);
-
+       // mainConstraintLayout = (ConstraintLayout) findViewById(R.id.mainConstraintLayout);
 
 
         }
