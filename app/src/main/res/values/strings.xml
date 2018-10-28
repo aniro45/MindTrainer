@@ -16,4 +16,25 @@
     <string name="incorrect">Incorrect:</string>
     <string name="finalcorrect">Correct</string>
     <string name="next_button">Next</string>
+    <string name="mind_trainer">Mind Trainer</string>
+    <string name="mind_trainer_1">Mind Trainer</string>
+    <string name="ajdeveloper">AJdeveloper</string>
+    <string name="version">Version</string>
+    <string name="_0_8_22_10">0.8.28.10</string>
+    <string name="you_accepted_all_the_terms_and_policies_all_the_rights_of_the_application_are_reserved_under_the_ajdeveloper">You accepted all the terms and policies. All the Rights of the application are reserved under the @AJDeveloper.</string>
+    <string name="startbuttontostartthegame">startButtonTOstartTheGame</string>
+    <string name="infobuttonleadstoinfolayout">infoButtonLeadsToInfoLayout</string>
+    <string name="backbuttontogostartpagefrominfopage">backButtonTogoStartPageFromInfoPage</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="quit">Quit</string>
+    <string name="beginner">Beginner</string>
+    <string name="moderate">Moderate</string>
+    <string name="veteran">Veteran</string>
+    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="changelogHeading">ChangeLog</string>
+    <string name="DetailedChangeLogText">--Added the Difficulty levels as BEGINNER, MODERATE and VETERAN --Some Miner Bug Fixes. --UI Optimization</string>
+    <string name="version_number">0.8.28.10</string>
+    <string name="whast_s_new">what\'s new!</string>
+    <string name="cancelbuttonformchangelog">cancelButtonFormChangelog</string>
+    <string name="added_the_difficulty_levels_as_beginner_moderate_and_veteran_some_miner_bug_fixes_ui_optimization">--Added the Difficulty levels as BEGINNER, MODERATE and VETERAN --Some Miner Bug Fixes. --UI Optimization</string>
 </resources>
