@@ -1,20 +1,19 @@
 package com.example.admin.mindtrainer;
 
-
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.view.View;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button beginnerLevelButton;
     Button moderateLevelButton;
     Button veteranLevelButton;
+    int timerValue = 30;
 
     ImageButton backButton;
     ImageButton infoButton;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Integer> answers = new ArrayList<>();
 
-
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
    public void cancelFromChangelogButtonClicked(View view){
 
@@ -176,8 +176,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         finalScoreTextView.setTextColor(Color.RED);
+
+       //    scoreAnimation();
+
+//        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
+
+
         finalAnsweredTextView.setText("Answered :" + numberOfQuestions);
         finalCorrectTextView.setText("Correct :" + score);
+//        finalScoreTextView.setText((CharSequence) databaseHelper.getHighScore());
+//        databaseHelper.addHighScore("aniket", score);
+        finalScoreTextView.setText(calculateFinalScore());
         finalInCorrectTextView.setText("Incorrect :" +(numberOfQuestions - score));
 
     }
@@ -202,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             generateQuestion(81, 81);
         }
 
-
+        finalScoreTextView.animate().rotation(0);
      /*   if (beginnerLevelButton.isPressed() == true) {
             generateQuestion(21, 21);
         } else if (moderateLevelButton.isPressed() == true) {
@@ -232,6 +242,8 @@ public class MainActivity extends AppCompatActivity {
 
                 timerTextView.setText(String.valueOf(millisUntilFinished/1000 + "s"));
 
+
+
             }
 
             @Override
@@ -249,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
                 nextButton.setVisibility(View.VISIBLE);
                 resultTextView.setTextSize(25);
                 resultTextView.setTextColor(Color.BLACK);
+                databaseHelper.addHighScore(finalScore);
                 resultTextView.setText(valueOf("Tap 'NEXT' to see the Final Score"));
                 }
         }.start();
@@ -356,6 +369,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+      void scoreAnimation() {
+
+          new CountDownTimer(timerValue, 400) {  //created Dynamic timer value and called here.
+              @Override
+              public void onTick(long millisUntilFinished) {
+
+                  finalScoreTextView.setTextSize(60);
+                  try {
+                      this.wait(200);
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  }
+                 finalScoreTextView.setTextSize(75);
+                  try {
+                      this.wait(200);
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  }
+
+              }
+
+              @Override
+              public void onFinish() {
+
+                  finalScoreTextView.setTextSize(75);
+              }
+          }.start();
+
+      }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -376,7 +421,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        backButton = (findViewById(R.id.backFromInfoToStartPage));
+        backButton = findViewById(R.id.backFromInfoToStartPage);
         sumTextView = findViewById(R.id.sumTextView);
         resultTextView = findViewById(R.id.resultTextView);
         timerTextView = findViewById(R.id.timerTextView);
