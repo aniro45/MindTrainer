@@ -1,0 +1,31 @@
+Index: app/src/main/java/com/example/admin/mindtrainer/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/admin/mindtrainer/MainActivity.java	(revision e5e24d19e8c9b7e5a81370b63f9a83955f0492a6)
++++ app/src/main/java/com/example/admin/mindtrainer/MainActivity.java	(date 1539383550095)
+@@ -85,6 +85,8 @@
+                       button2.setEnabled(false);
+                       button3.setEnabled(false);
+ 
++                      // THROW ME TO WOLVES AND I COME BACK LEAD THE PACK.
++
+ 
+                   }
+               }.start();
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1539381625594)
++++ .idea/vcs.xml	(date 1539381625594)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
